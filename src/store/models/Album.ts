@@ -9,7 +9,7 @@ export default class Album extends Model {
       userId: this.attr(null),
       id: this.attr(null),
       title: this.attr(""),
-      user: this.hasOne(User, "userId")
+      user: this.belongsTo(User, 'albums')
     };
   }
 

@@ -29,7 +29,11 @@ export default class HelloWorld extends Vue {
         update: ["albums"]
       }
     });
-    await Album.api().get("https://jsonplaceholder.typicode.com/albums");
+    await Album.api().get("https://jsonplaceholder.typicode.com/albums", {
+      persistOptions: {
+        update: ["user"]
+      }
+    });
   }
 
   get users() {
