@@ -14,7 +14,11 @@ export default class User extends Model {
       phone: this.attr(""),
       website: this.attr(""),
       company: this.attr({}),
-      albums: this.hasMany(Album, 'userId')
+      albums: this.hasMany(Album, "userId")
     };
+  }
+
+  setName(name: string) {
+    this.$update({ name: name });
   }
 }

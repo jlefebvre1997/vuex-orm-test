@@ -4,6 +4,8 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
+import Update from "@/views/User/Update.vue";
+
 const routes: Array<RouteConfig> = [
   {
     path: "/",
@@ -18,6 +20,11 @@ const routes: Array<RouteConfig> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+  {
+    path: "/users/update/:id",
+    name: "UserUpdate",
+    component: Update
   }
 ];
 

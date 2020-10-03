@@ -8,6 +8,19 @@
   </div>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import { User, Album } from "@/store/models";
+
+@Component
+export default class App extends Vue {
+  async mounted() {
+    await User.api().get("https://jsonplaceholder.typicode.com/users");
+    await Album.api().get("https://jsonplaceholder.typicode.com/albums");
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

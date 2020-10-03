@@ -9,11 +9,7 @@ export default class Album extends Model {
       userId: this.attr(null),
       id: this.attr(null),
       title: this.attr(""),
-      user: this.belongsTo(User, 'albums')
+      user: this.belongsTo(User, "userId")
     };
-  }
-
-  static beforeCreate(album: any) {
-    album.user = User.find(album.userId)
   }
 }

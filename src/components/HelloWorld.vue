@@ -23,25 +23,16 @@ import { Album, User } from "@/store/models";
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
-  async mounted() {
-    await User.api().get("https://jsonplaceholder.typicode.com/users", {
-      persistOptions: {
-        update: ["albums"]
-      }
-    });
-    await Album.api().get("https://jsonplaceholder.typicode.com/albums", {
-      persistOptions: {
-        update: ["user"]
-      }
-    });
-  }
-
   get users() {
-    return User.all();
+    return User.query()
+      .with("albums")
+      .get();
   }
 
   get albums() {
-    return Album.all();
+    return Album.query()
+      .with("user")
+      .get();
   }
 }
 </script>
